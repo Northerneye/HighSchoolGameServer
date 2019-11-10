@@ -1,7 +1,7 @@
 <?php
 	$servername = "localhost";
 	$username = "root";
-	$password = "TysonShadow";
+	$password = "T";
 	$dbname = "serversidetest";
 	$ipaddress = '';
 	if (getenv('HTTP_CLIENT_IP'))
