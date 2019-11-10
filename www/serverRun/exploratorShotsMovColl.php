@@ -4,7 +4,7 @@
 	set_time_limit (10000000);
 	$servername = "localhost";
 	$username = "root";
-	$password = "TysonShadow";
+	$password = "T";
 	$dbname = "explorator";
 	$shotX1 = 0;
 	$shotY1 = 0;
