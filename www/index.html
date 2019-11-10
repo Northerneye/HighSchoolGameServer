@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="ludificioEngine/jquery-3.1.0"></script>
+    <link rel="stylesheet" type="text/css" href="ludificioEngine/noCursor.css" />
+    <link rel="stylesheet" type="text/css" href="ludificioEngine/canvasStyle.css" />
+    <script>
+    </script>
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="900" height="600"></canvas>
+    <script>
+    </script>
+    <script src="ludificioEngine/userInput.js"></script>
+    <script src="ludificioEngine/windowMaintain.js"></script>
+    <script src="ludificioEngine/draw2DShapes.js"></script>
+    <script src="ludificioEngine/Collision.js"></script>
+    <script src="ludificioEngine/draw3DShapes.js"></script>
+    <script src="ludificioEngine/audio.js"></script>
+    <script src="ludificioEngine/openWorld2D.js"></script>
+    <script src="ludificioEngine/drawPassiveObjects.js"></script>
+    <script src="ludificioEngine/download.js"></script>
+    <script>
+        var windowDirectory = window.location.href.replace('', '');
+        //window.location = windowDirectory + "JohnCena";
+        window.setInterval(function() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            drawPassiveRect(0, 0, canvas.width, canvas.height, [175, 50, 50, 1]);
+            if (charStr[jQuery.inArray("n", charStr)] == "n") {
+                window.location = windowDirectory + "noah.html";
+            }
+            if (charStr[jQuery.inArray("i", charStr)] == "i") {
+                window.location = windowDirectory + "Bill_Cosby.html";
+            }
+            if (mouseOver(canvas.width / 9, canvas.height / 4, canvas.width / 5, canvas.height / 9)) {
+                drawPassiveRect(canvas.width / 9, canvas.height / 4, canvas.width / 5, canvas.height / 9, [150, 50, 175, 1]);
+            }
+            if (mouseOver(4 * canvas.width / 7, canvas.height / 4, 2 * canvas.width / 5, canvas.height / 9)) {
+                drawPassiveRect(4 * canvas.width / 7, canvas.height / 4, 2 * canvas.width / 5, canvas.height / 9, [175, 100, 0, 1]);
+            }
+            drawText(0, canvas.height / 30, canvas.width, canvas.height / 9, "Welcome to the Arcade", "ludificioEngine/text/fonts/8-bit/black/");
+            drawText(canvas.width / 9, canvas.height / 4, canvas.width / 5, canvas.height / 9, "Login", "ludificioEngine/text/fonts/8-bit/black/");
+            if (onRectButton(canvas.width / 9, canvas.height / 4, canvas.width / 5, canvas.height / 9)) {
+                window.location = windowDirectory + "login.php";
+            }
+            drawText(4 * canvas.width / 7, canvas.height / 4, 2 * canvas.width / 5, canvas.height / 9, "create account", "ludificioEngine/text/fonts/8-bit/black/");
+            if (onRectButton(4 * canvas.width / 7, canvas.height / 4, 2 * canvas.width / 5, canvas.height / 9)) {
+                window.location = windowDirectory + "createAccount.php";
+            }
+            if (onRectButton(0, 2 * canvas.height / 3, canvas.width, canvas.height)) {
+                window.location = windowDirectory + "music.php";
+            }
+            if (onRectButton(3 * canvas.width / 21, canvas.height / 30, canvas.width / 21, canvas.height / 9)) {
+                window.location = windowDirectory + "johnCena/";
+            }
+            drawPassiveRectTexture(mouseXPos, mouseYPos, 25, 25, "ludificioEngine/images/cursors/Cursor")
+        }, 10)
+    </script>
+</body>
+
+</html>

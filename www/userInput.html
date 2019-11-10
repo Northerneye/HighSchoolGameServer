@@ -1,0 +1,212 @@
+<html>
+<head>
+<script src="ludificioEngine/jquery-3.1.0.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script><!---->
+<link rel="stylesheet" type="text/css" href="ludificioEngine/canvasStyle.css"/>
+<script>
+</script>
+</head>
+<body>
+<canvas id="gameCanvas" width="900" height="600" ></canvas>
+<script>
+//you've found it
+//and Here it is
+//THE ANSWER IS 42 --REMEMBER THAT!
+
+/***
+//now the qUestion is what you seek
+//and it is in the sun
+//you'll need a tunnel to GeT thEre
+//and i know where you can find one
+//if you go to the lasT menu
+//and look dOwnright						//or look for a clue
+//you may have quite a fright
+//and find that madness you may fall into
+
+//to beat this game 
+//you may need a Pointer
+***/
+
+//if you find that you do
+//look to the letters
+//inside this clue /*** ***/
+//... ... ... in lvl 2
+
+//ps - it can get stuck on the blocks
+
+
+</script>
+<!--^^^HERE^^^-->
+<script src="ludificioEngine/userInput.js"></script>
+<script src="ludificioEngine/windowMaintain.js"></script>
+<script src="ludificioEngine/draw2DShapes.js"></script>
+<script src="ludificioEngine/Collision.js"></script>
+<script src="ludificioEngine/draw3DShapes.js"></script>
+<script src="ludificioEngine/audio.js"></script>
+<script src="ludificioEngine/openWorld2D.js"></script>
+<script src="ludificioEngine/drawPassiveObjects.js"></script>
+<script>
+window.oncontextmenu = function() {
+	return true;
+};
+/**/var x1Width = canvas.width/2-200;
+var y1Width = canvas.height/2;
+var Lengths1 = 50;
+var xBlock = canvas.width/2+200;
+var yBlock = canvas.height/2;
+var Lengths2 = 50;
+var color1 = [200, 0, 0];
+var color2 = [200, 100, 0];
+var timer1 = 0;
+window.setInterval(function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	if (charStr[jQuery.inArray("w", charStr)] == "w")
+	{
+		y1Width -= 5;
+	}
+	if (charStr[jQuery.inArray("s", charStr)] == "s")
+	{
+		y1Width += 5;
+	}
+	if (charStr[jQuery.inArray("d", charStr)] == "d")
+	{
+		x1Width += 5;
+	}
+	if (charStr[jQuery.inArray("a", charStr)] == "a")
+	{
+		x1Width -= 5;
+	}
+	if (charStr[jQuery.inArray("q", charStr)] == "q")
+	{
+		Lengths1 -= 10;
+	}
+	if (charStr[jQuery.inArray("e", charStr)] == "e")
+	{
+		Lengths1 += 10;
+	}
+	if (charStr[jQuery.inArray("r", charStr)] == "r")
+	{
+		color1[0] += 10;
+	}if (charStr[jQuery.inArray("f", charStr)] == "f")
+	{
+		color1[0] -= 10;
+	}
+	if (charStr[jQuery.inArray("t", charStr)] == "t")
+	{
+		color1[1] += 10;
+	}
+	if (charStr[jQuery.inArray("g", charStr)] == "g")
+	{
+		color1[1] -= 10;
+	}
+	if (charStr[jQuery.inArray("y", charStr)] == "y")
+	{
+		color1[2] += 10;
+	}
+	if (charStr[jQuery.inArray("h", charStr)] == "h")
+	{
+		color1[2] -= 10;
+	}
+	/*if (color1[0] > 360)
+	{
+		color1[0] = 360;
+	}
+	if (color1[1] > 360)
+	{
+		color1[1] = 360;
+	}
+	if (color1[2] > 360)
+	{
+		color1[2] = 360;
+	}
+	if (color1[0] < 0)
+	{
+		color1[0] = 0;
+	}
+	if (color1[1] < 0)
+	{
+		color1[1] = 0;
+	}
+	if (color1[2] < 0)
+	{
+		color1[2] = 0;
+	}
+	if (color2[0] >= 360)
+	{
+		color2[0] = 360;
+	}
+	if (color2[1] > 360)
+	{
+		color2[1] = 360;
+	}
+	if (color2[2] > 360)
+	{
+		color2[2] = 360;
+	}
+	if (color2[0] < 0)
+	{
+		color2[0] = 0;
+	}
+	if (color2[1] < 0)
+	{
+		color2[1] = 0;
+	}
+	if (color2[2] < 0)
+	{
+		color2[2] = 0;
+	}
+	*/
+	collision3D();
+	drawCube(x1Width, y1Width, Lengths1, color1, 0, false);
+	drawCube(xBlock, yBlock, Lengths2, color2, 0, false);
+	if(isRightMouseDown)
+	{
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		drawText(canvas.width/2-400, canvas.height/2-50, 800, 100, "what was the answer to the riddle", "../ludificioEngine/text/fonts/8-bit/black/");
+	}
+	if(xBlock == x1Width && yBlock == y1Width)
+	{
+		timer1 = timer1 + 1
+		if(timer1 > 150)
+		{
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			drawPassiveRect(0, 0, canvas.width, canvas.height, [150, 0, 55, 1]);
+			drawText(canvas.width/2-400, canvas.height/2-100, 800, 200, "Maddness Mode", "../ludificioEngine/text/fonts/8-bit/black/");
+		}
+	}
+	else
+	{
+		timer1 = 0;
+	}
+}, 10);/**/
+/*Init();
+createAudio("audioFiles/8-Bit/pushingOnward.mp3", "pushing");
+playSong("pushing");
+var color = [10, 10, 255, .5];
+window.setInterval(function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	stopUser();
+	wallCollision();
+	//physics2D();
+	proximityVolume("pushing", 1100, 700, 700, .25);
+	controls2D();
+	//drawRectRoom(0, 0, 600, 600, 50, 50, [""], [], [100, 100, 100, 1], 2)
+	//sampleWorld1();
+	drawTriangle(500, 410, 400, 500, 500, 500, [255, 100, 50, .75], true, true, 1);
+	drawTriangle(100, 410, 0, 500, 100, 500, [255, 100, 50, .75], true, false, 2);
+	drawTriangle(200, 100, 100, 200, 200, 200, [0, 100, 50, .75], true, false, 100);
+	drawTriangle(window.innerWidth/2, window.innerHeight/2, window.innerWidth/2+100, window.innerHeight/2, window.innerWidth/2, window.innerHeight/2+100, color, true, true, 2);
+	drawRect(200, 300, 100, 100, [100, 0, 255, .75], true, true, 0);
+	drawRect(302, 550, 500, 50, color, true, false, 2);
+	drawRectTexture(600, 600, 100, 100, "images/test3.png", false, false, 8);
+	drawRect(window.innerWidth/2, window.innerHeight/2, 100, 100, color, true, true, 12);
+	drawRectTexture(100, 100, 300, 300, "images/test3.png", true, true, 0)
+	disconnectedCamera();
+	clearVars(false);
+	cleanInput();
+}, 10);
+
+/**/
+</script>
+</body>
+</html>
