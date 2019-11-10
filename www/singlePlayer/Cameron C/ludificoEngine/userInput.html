@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="noCursor.css"/><!---->
+<link rel="stylesheet" type="text/css" href="canvasStyle.css"/>
+<script src="windowMaintain.js"></script>
+<script src="userInput.js"></script>
+<script>
+</script>
+</head>
+<body>
+<canvas id="gameCanvas" width="900" height="600" ></canvas>
+<script>
+</script>
+<script src="draw2DShapes.js"></script>
+<script src="draw3DShapes.js"></script>
+<script src="audio.js"></script>
+<script>
+/*var x1Width = 250;
+var y1Width = 250;
+var Lengths1 = 50;
+var xBlock = 500;
+var yBlock = 500;
+var Lengths2 = 50;
+var color1 = [200, 0, 0];
+var color2 = [200, 100, 0];
+window.setInterval(function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	if (charStr == "w")
+	{
+		y1Width -= 5;
+		yBlock += 5;
+	}
+	if (charStr == "s")
+	{
+		y1Width += 5;
+		yBlock -= 5;
+	}
+	if (charStr == "d")
+	{
+		x1Width += 5;
+		xBlock -= 5;
+	}
+	if (charStr == "a")
+	{
+		x1Width -= 5;
+		xBlock += 5;
+	}
+	if (charStr == "q")
+	{
+		Lengths1 -= 10;
+		Lengths2 += 10;
+	}
+	if (charStr == "e")
+	{
+		Lengths1 += 10;
+		Lengths2 -= 10;
+	}
+	if (charStr == "r")
+	{
+		color1[0] += 10;
+		color2[0] -= 10;
+	}if (charStr == "f")
+	{
+		color1[0] -= 10;
+		color2[0] += 10;
+	}
+	if (charStr == "t")
+	{
+		color1[1] += 10;
+		color2[1] -= 10;
+	}
+	if (charStr == "g")
+	{
+		color1[1] -= 10;
+		color2[1] += 10;
+	}
+	if (charStr == "y")
+	{
+		color1[2] += 10;
+		color2[2] -= 10;
+	}
+	if (charStr == "h")
+	{
+		color1[2] -= 10;
+		color2[2] += 10;
+	}
+	if (color1[0] > 360)
+	{
+		color1[0] = 360;
+	}
+	if (color1[1] > 360)
+	{
+		color1[1] = 360;
+	}
+	if (color1[2] > 360)
+	{
+		color1[2] = 360;
+	}
+	if (color1[0] < 0)
+	{
+		color1[0] = 0;
+	}
+	if (color1[1] < 0)
+	{
+		color1[1] = 0;
+	}
+	if (color1[2] < 0)
+	{
+		color1[2] = 0;
+	}
+	if (color2[0] >= 360)
+	{
+		color2[0] = 360;
+	}
+	if (color2[1] > 360)
+	{
+		color2[1] = 360;
+	}
+	if (color2[2] > 360)
+	{
+		color2[2] = 360;
+	}
+	if (color2[0] < 0)
+	{
+		color2[0] = 0;
+	}
+	if (color2[1] < 0)
+	{
+		color2[1] = 0;
+	}
+	if (color2[2] < 0)
+	{
+		color2[2] = 0;
+	}
+	collision3D();
+	
+	drawCube(x1Width, y1Width, Lengths1, color1, 0, false);
+	drawCube(xBlock, yBlock, Lengths2, color2, 0, false);
+	
+	charStr = "";
+}, 10);/**/
+responseFunctions();
+createAudio("audioFiles/8-Bit/pushingOnward.mp3", "pushing");
+createAudio("audioFiles/8-Bit/pushingOnward.mp3", "pushin");
+playSong("pushing");
+playSong("pushin");
+window.setInterval(function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	proximityVolume("pushing", 1100, 700, 700, .25);
+	proximityVolume("pushin", 0, 700, 700, .25);
+	controls2D();
+	physics2D();
+	wallCollision(true, false, false, true);
+	drawTriangle(300, 300, 400, 300, 300, 400, [100, 100, 100, .5]);
+	drawRect(100, 105, 400, 45, [100, 100, 0, .5], true, false, false);
+	//drawRect(300, 300, 100, 100, [10, 10, 255, 1], false, false, false);
+	drawRect(1100, 700, 200, 200, [255, 0, 255, .8], false, false, false);
+	drawRect(100, 100, 100, 100, [10, 10, 255, 1], false, false, true);
+	movement2D();
+	//stopBlocks();
+	cleanInput();
+}, 10);
+userSpawn(0, 0);
+/**/
+</script>
+
+</body>
+</html>

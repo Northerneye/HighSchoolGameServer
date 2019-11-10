@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="ludificoEngine/noCursor.css"/>
+<link rel="stylesheet" type="text/css" href="ludificoEngine/canvasStyle.css"/>
+<script src="ludificoEngine/windowMaintain.js"></script>
+<script src="ludificoEngine/userInput.js"></script>
+<script>
+</script>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+</script>
+<script src="ludificoEngine/draw2DShapes.js"></script>
+<script src="ludificoEngine/draw3DShapes.js"></script>
+<script src="ludificoEngine/audio.js"></script>
+<script>
+var win = false;
+responseFunctions();
+createAudio("ludificoEngine/audioFiles/8-Bit/strugglingAction.mp3", "pushing");
+createAudio("ludificoEngine/audioFiles/8-Bit/simpleAdventure.mp3", "pushin");
+createAudio("ludificoEngine/audioFiles/8-Bit/pushingOnward.mp3", "pushi");
+createAudio("ludificoEngine/audioFiles/8-Bit/awesomeGeneral.mp3", "push");
+createAudio("ludificoEngine/audioFiles/8-Bit/depthAdventure.mp3", "pus");
+playSong("pushing");
+playSong("pushin");
+playSong("pushi");
+playSong("push");
+playSong("pus");
+window.setInterval(function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	movement2D();
+	if (win == false)
+	{	
+		controls2D();
+	}
+	proximityVolume("pushing", canvas.width, canvas.height, 500, .25)
+	proximityVolume("pushin", canvas.width, 0, 500, .25)
+	proximityVolume("pushi", 0, 0, 500, .25)
+	proximityVolume("push", 0, canvas.height, 500, .25)
+	proximityVolume("pus", canvas.width/2, canvas.height/2, 500, .25)
+	physics2D();
+	wallCollision(false, false, false, false);
+	drawRectWithOutline(105, 105, 395, 45, [100, 100, 0, .5], [50, 50, 255, 1], true, false, false);
+	drawRectWithOutline(105, 150, 45, 255, [100, 100, 0, .5], [50, 255, 255, 1], true, false, false);
+	drawRectWithOutline(105, 405, 195, 45, [100, 100, 0, .5], [255, 50, 255, 1], true, false, false);
+	drawRectWithOutline(250, 255, 350, 45, [100, 100, 0, .5], [255, 255, 50, 1], true, false, false);
+	drawRect(700, 0, 50, 405, [100, 100, 0, .5], true, false, false);
+	drawRect(700, 405, 150, 45, [100, 100, 0, .5], true, false, false);
+	drawRectWithOutline(850, 255, 250, 45, [100, 100, 0, .5], [0, 0, 0, 1], true, false, false);
+	drawRectWithOutline(750, 100, 500, 50, [100, 100, 0, .5], [255, 200, 150, 1], true, false, false);
+	drawRect(0, 555, 150, 45, [100, 100, 0, .5], true, false, false);
+	drawRect(605, 105, 95, 45, [100, 100, 0, .5], true, false, false);
+	drawRect(250, 450, 50, 255, [100, 100, 0, .5], true, false, false);
+	drawRectWithOutline(100, 705, 200, 45, [100, 100, 0, .5], [50, 255, 50, 1], true, false, false);
+	drawRect(400, 300, 50, 250, [100, 100, 0, .5], true, false, false);
+	drawRect(300, 705, 300, 45, [100, 100, 0, .5], true, false, false);
+	drawRectWithOutline(400, 550, 700, 50, [100, 100, 0, .5], [255, 255, 50, 1], true, false, false);
+	drawRect(700, 600, 50, 150, [100, 100, 0, .5], true, false, false);
+	drawRect(700, 750, 50, 200, [0, 0, 0, 0],  true, false, false);
+	drawRectWithOutline(550, 405, 150, 45, [100, 100, 0, .5], [100, 100, 255, 1], true, false, false);
+	drawRect(1200, 150, 50, 775, [100, 100, 0, .5], true, false, false);
+	drawRect(950, 300, 50, 250, [100, 100, 0, .5], true, false, false);
+	drawRectWithOutline(1100, 405, 100, 45, [100, 100, 0, .5], [100, 200, 150, 1], true, false, false);
+	drawRect(750, 600, 450, 350, [255, 0, 0, .5], false, false, false);
+	drawRect(1100, 550, 100, 50, [100, 100, 0, .46], false, false, false)
+	drawRect(100, 100, 100, 100, [0, 255, 255, .9], false, false, true);
+	if (xUser > 750 && yUser > 600)
+	{
+		win = true;
+		drawRect(750, 600, 450, 350, [0, 0, 255, .5], false, false, false);
+	}	
+}, 10);
+userSpawn(100, 0);
+</script>
+
+</body>
+</html>
